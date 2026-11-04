@@ -1,0 +1,166 @@
+/* === ELEMENT selector + INHERITANCE: body sets font/color, children inherit === */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #1d2330;
+    margin: 0;
+    padding: 20px;
+    background: #f5f7fb;
+}
+
+/* === CASCADING: header overrides body font to serif === */
+header {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 26px;
+    color: #1b3f8f;
+    text-align: center;
+    padding: 16px;
+    margin-bottom: 20px;
+}
+
+/* === DESCENDANT selector === */
+header span {
+    margin: 0 4px;
+}
+
+/* === PSEUDO-ELEMENT selector === */
+header span:not(:last-child)::after {
+    content: " |";
+    color: #999;
+}
+
+.main {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.graph {
+    flex: none;
+}
+
+.graph canvas {
+    border: 1px solid #ccc;
+    background: #fff;
+    border-radius: 4px;
+}
+
+/* === CHILD selector === */
+form > .field {
+    margin-bottom: 14px;
+}
+
+form > .field label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
+/* === Input spacing in pixels === */
+input[type="text"] {
+    padding: 8px 10px;
+    margin: 2px 0;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 200px;
+}
+
+.radio-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+}
+
+.radio-group label {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 12px;
+    margin: 2px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    background: #fff;
+    transition: background 0.15s, border-color 0.15s;
+}
+
+.radio-group label:hover {
+    background: #e8edf5;
+}
+
+/* === CASCADING: active radio overrides default style === */
+.radio-group input[type="radio"] {
+    display: none;
+}
+
+.radio-group input[type="radio"]:checked + span {
+    color: #fff;
+}
+
+.radio-group label:has(input:checked) {
+    background: #1b3f8f;
+    border-color: #1b3f8f;
+    color: #fff;
+}
+
+#error {
+    color: #c0392b;
+    font-size: 13px;
+    min-height: 18px;
+    margin: 6px 0;
+}
+
+button[type="submit"] {
+    padding: 10px 24px;
+    margin: 4px 0;
+    font-size: 15px;
+    background: #1b3f8f;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background: #15327a;
+}
+
+/* === Results table === */
+.results {
+    max-width: 900px;
+    margin: 24px auto;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 8px 10px;
+    text-align: center;
+}
+
+th {
+    background: #1b3f8f;
+    color: #fff;
+    font-size: 13px;
+}
+
+td {
+    font-size: 13px;
+    background: #fff;
+}
+
+/* === Descendant: hit/miss styling inside table === */
+td.hit {
+    color: #27ae60;
+    font-weight: bold;
+}
+
+td.miss {
+    color: #c0392b;
+}
